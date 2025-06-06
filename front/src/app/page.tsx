@@ -1,23 +1,17 @@
-import Link from "next/link";
+"use client";
 
+import Silk from '@/components/BackgroundWebP';
 export default function Home() {
   return (
-    <>
-      <div className="bg-white p-4 text-4xl font-serif">
-        Прокопенко Сергей Игоревич
-      </div>
-      <div className="flex gap-2 p-4 text-white text-sm">
-        <Link href="/projects">
-          <button className="px-2 py-1 border border-white rounded-lg uppercase font-semibold bg-transparent hover:bg-green-200 hover:text-black transition-colors duration-300">
-            Проекты
-          </button>
-        </Link>
-        <Link href="/projects">
-          <button className="px-2 py-1 border-1 border-white rounded-lg uppercase font-semibold bg-transparent hover:bg-green-200 hover:text-black transition-colors duration-300">
-            Информация
-          </button>
-        </Link>
-      </div>
-    </>
+    <div className=" w-screen h-screen fixed top-0 left-0 z-[-1]">
+      <Silk
+        speed={3}
+        scale={1}
+        color="#7B588D"
+        noiseIntensity={2.2}
+        rotation={6.23}
+      />
+    </div>
+
   );
 }

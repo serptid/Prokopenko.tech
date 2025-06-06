@@ -1,5 +1,4 @@
 import "./globals.css";
-import BackgroundWebP from "@/components/BackgroundWebP";
 
 export default function RootLayout({
   children,
@@ -10,7 +9,6 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body>
-        <BackgroundWebP />
         {children}
       </body>
     </html>
