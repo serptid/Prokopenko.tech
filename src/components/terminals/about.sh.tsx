@@ -20,14 +20,14 @@ export default function AboutTerminal({ onDone }: { onDone?: () => void }) {
           <div className="border-l-2 border-green-500 pl-4 space-y-1">
             <Typewriter text="Name: Сергей 'Zombi' Прокопенко" delay={30} />
             <br />
-            <Typewriter text="Age: 25" delay={30} />
+            <Typewriter text="Age: 19" delay={30} />
             <br />
             <Typewriter text="Location: Vladivostok, Russia" delay={30} />
             <br />
             <Typewriter text="Status: [ONLINE] Ready to hack the world" delay={30} />
             <br />
             <Typewriter
-              text="Bio: Passionate developer with 5+ years of experience in breaking and building systems. I love clean code, cybersecurity, and late-night coding sessions."
+              text="Bio: Веб-разработчик начального уровня с сильной мотивацией к обучению и росту. Ищу возможность применить полученные знания на практике и развиваться в профессиональной среде."
               delay={20}
               onComplete={onDone}
             />

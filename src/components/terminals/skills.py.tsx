@@ -18,23 +18,20 @@ export default function SkillsTerminal({ onDone }: { onDone?: () => void }) {
         <div className="space-y-2">
           <div className="text-green-300">$ python3 skills.py --list</div>
           <div className="space-y-1 whitespace-pre text-green-400 font-mono">
-            <Typewriter text="[■■■■■■■■■■■■■■■■■■■■] 95% - JavaScript     " delay={20} />
+            <Typewriter text="[■■■■■■■■■■■         ] 65% - JavaScript     " delay={20} />
             <br />
-            <Typewriter text="[■■■■■■■■■■■■■■■■■■  ] 90% - TypeScript     " delay={20} />
+            <Typewriter text="[■■■■■■■■■■■■        ] 60% - TypeScript     " delay={20} />
             <br />
-            <Typewriter text="[■■■■■■■■■■■■■■■■■■■ ] 92% - React/Next.js  " delay={20} />
+            <Typewriter text="[■■■■■■■■■■■■■■■■■   ] 82% - React/Next.js  " delay={20} />
             <br />
-            <Typewriter text="[■■■■■■■■■■■■■■■■■■  ] 88% - Node.js        " delay={20} />
+            <Typewriter text="[■■■■■■■■■■■■■■■     ] 76% - FastAPI        " delay={20} />
             <br />
             <Typewriter text="[■■■■■■■■■■■■■■■■    ] 80% - Python         " delay={20} />
             <br />
             <Typewriter text="[■■■■■■■■■■■■■■■■■■■ ] 93% - Linux/Bash     " delay={20} />
             <br />
-            <Typewriter
-              text="[■■■■■■■■■■■■■■■■■■  ] 85% - Cybersecurity  "
-              delay={20}
-              onComplete={onDone}
-            />
+            <Typewriter text="[■■■■■■■■■■■■■       ] 70% - DevOps         " delay={20} />
+            <br />
           </div>
         </div>
       )}
