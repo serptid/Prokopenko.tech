@@ -1,4 +1,4 @@
-import { Terminal } from "lucide-react"
+import { Terminal, Minus, Square, X } from "lucide-react"
 import { ReactNode } from "react"
 
 export interface TerminalWindowProps {
@@ -15,11 +15,19 @@ export default function TerminalWindow({ title, children, className = "" }: Term
           <Terminal className="w-4 h-4 text-green-400" />
           <span className="text-green-400 font-mono text-sm">{title}</span>
         </div>
-        <div className="flex items-center gap-2">
-          <button className="w-3 h-3 bg-yellow-500 rounded-full"></button>
-          <button className="w-3 h-3 bg-green-500 rounded-full"></button>
-          <button className="w-3 h-3 bg-red-500"></button>
-        </div>
+            <div className="flex items-center gap-2">
+            <Minus className="w-5 h-5 text-yellow-500 translate-y-[5px] scale-y-[1]" />
+            
+            <div className="relative w-5 h-5">
+            {/* Задний (нижний) квадрат — слегка смещён */}
+            <Square className="absolute -top-[2px] left-[2px] w-5 h-5 text-green-600" />
+            
+            {/* Передний (верхний) квадрат — на месте и перекрывает задний */}
+            <Square className="absolute top-0 left-0 w-5 h-5 text-green-500" />
+            </div>
+
+            <X className="w-5 h-5 text-red-500" />
+            </div>
       </div>
       <div className="p-4 font-mono text-green-400 min-h-[200px]">{children}</div>
     </div>
