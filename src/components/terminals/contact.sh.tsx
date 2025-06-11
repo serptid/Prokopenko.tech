@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react"
 import TerminalWindow from "../TerminalWindow"
 import Typewriter from "../Typewriter"
-import { Mail, Github, Terminal } from "lucide-react"
+import { FaTelegram , FaGithub, FaSteam } from "react-icons/fa"
+import { MdAlternateEmail  } from "react-icons/md";
+
 
 export default function ContactTerminal() {
   const [show, setShow] = useState(false)
@@ -20,16 +22,20 @@ export default function ContactTerminal() {
           <div className="text-green-300">$ ./connect_with_hacker.sh</div>
           <div className="space-y-3">
             <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4" />
+              <MdAlternateEmail className="w-4 h-4" />
               <Typewriter text="Email: psi200523@gmail.com" delay={30} />
             </div>
             <div className="flex items-center gap-2">
-              <Github className="w-4 h-4" />
+              <FaGithub  className="w-4 h-4" />
               <Typewriter text="GitHub: github.com/serp_tid" delay={30} />
             </div>
             <div className="flex items-center gap-2">
-              <Terminal className="w-4 h-4" />
+              <FaTelegram className="w-4 h-4" />
               <Typewriter text="Telegram: @ProkopenkoSR" delay={30} />
+            </div>
+            <div className="flex items-center gap-2">
+              <FaSteam className="w-4 h-4" />
+              <Typewriter text="Steam: steamcommunity.com/id/SERP_TID" delay={30} />
             </div>
             <div className="mt-4 p-2 border border-green-500 rounded">
               <Typewriter text="[ENCRYPTED] Ready for new challenges and collaborations!" delay={25} />

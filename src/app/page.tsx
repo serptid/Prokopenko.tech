@@ -15,18 +15,18 @@ export default function Page() {
       <MatrixBackground />
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="mb-6">
+        <div className="mb-4">
           <WhoamiTerminal />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <AboutTerminal />
           <SkillsTerminal />
           <ProjectsTerminal />
           <ContactTerminal />
         </div>
 
-      <div className="mt-6">
+      <div className="mt-4">
         <StatusTerminal />
       </div>
       </div>

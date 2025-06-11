@@ -23,7 +23,7 @@ export default function TerminalWindow({ title, children, className = "" }: Term
       ref={ref}
       className={`relative rounded-xl overflow-hidden border border-green-500 shadow-2xl shadow-green-500/20 ${className}`}
     >
-      <div className="handle flex items-center justify-between bg-gray-900 px-4 py-1 border-b border-green-500 cursor-move">
+      <div className="handle flex items-center justify-between bg-gray-900 px-4 py-1 cursor-move">
         <div className="flex items-center gap-2">
           <Terminal className="w-4 h-4 text-green-400" />
           <span className="text-green-400 font-mono text-sm">{title}</span>

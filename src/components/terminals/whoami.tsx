@@ -20,7 +20,7 @@ export default function WhoamiTerminal() {
           <Typewriter text="> SERYOGAZOMBI_HACKER.exe" delay={80} />
         </div>
         <div className="text-green-300">
-          <Typewriter text="Full Stack Developer | Cybersecurity Enthusiast | Code Ninja" delay={50} />
+          <Typewriter text="Student | Full Stack Developer | DevOps" delay={50} />
         </div>
       </div>
     </TerminalWindow>
