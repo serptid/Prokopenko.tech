@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from "next"
 import "@/app/globals.css" // обязательно подключи стили Tailwind
 
 export const metadata: Metadata = {
-  title: "Alex Hacker | Terminal Portfolio",
+  title: "Сергей Прокопенко | Terminal/Портфолио",
   description: "Портфолио разработчика и энтузиаста кибербезопасности в стиле терминала.",
 }
 

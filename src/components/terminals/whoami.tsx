@@ -8,7 +8,7 @@ export default function WhoamiTerminal() {
     <TerminalWindow title="root@hacker:~$ whoami" className="w-full">
       <div className="space-y-2">
         <div className="text-green-300">
-          <Typewriter text="$ initializing_hacker_portfolio.exe..." delay={30} />
+          <Typewriter text="$ initializing_developer_portfolio.exe..." delay={30} />
         </div>
         <div className="text-green-500">
           <Typewriter text="[OK] System loaded successfully" delay={40} />
