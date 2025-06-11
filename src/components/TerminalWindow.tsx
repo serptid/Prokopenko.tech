@@ -29,9 +29,9 @@ export default function TerminalWindow({ title, children, className = "" }: Term
           <span className="text-green-400 font-mono text-sm">{title}</span>
         </div>
         <div className="flex items-center gap-2">
-          <Minus className="w-5 h-5 text-yellow-500 translate-y-[2px] scale-y-[0.4]" />
+          <Minus className="w-5 h-5 text-yellow-500 translate-y-[5px] scale-y-[1]" />
           <div className="relative w-5 h-5">
-            <Square className="absolute top-[2px] left-[2px] w-5 h-5 text-green-600" />
+            <Square className="absolute -top-[2px] left-[2px] w-5 h-5 text-green-600" />
             <Square className="absolute top-0 left-0 w-5 h-5 text-green-500" />
           </div>
           <X className="w-5 h-5 text-red-500" />
