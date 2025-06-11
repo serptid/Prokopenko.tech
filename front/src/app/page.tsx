@@ -26,7 +26,9 @@ export default function Page() {
           <ContactTerminal />
         </div>
 
+      <div className="mt-6">
         <StatusTerminal />
+      </div>
       </div>
     </div>
   )
