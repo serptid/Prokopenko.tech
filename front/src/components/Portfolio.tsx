@@ -42,7 +42,7 @@ interface TerminalWindowProps {
 
 function TerminalWindow({ title, children, className = "" }: TerminalWindowProps) {
   return (
-    <div className={`bg-black border border-green-500 rounded-lg shadow-2xl shadow-green-500/20 ${className}`}>
+    <div className={`rounded-xl overflow-hidden border border-green-500 shadow-2xl shadow-green-500/20 ${className}`}>
       <div className="flex items-center justify-between bg-gray-900 px-4 py-2 border-b border-green-500">
         <div className="flex items-center gap-2">
           <Terminal className="w-4 h-4 text-green-400" />
@@ -51,7 +51,7 @@ function TerminalWindow({ title, children, className = "" }: TerminalWindowProps
         <div className="flex items-center gap-2">
           <button className="w-3 h-3 bg-yellow-500 rounded-full"></button>
           <button className="w-3 h-3 bg-green-500 rounded-full"></button>
-          <button className="w-3 h-3 bg-red-500 rounded-full"></button>
+          <button className="w-3 h-3 bg-red-500"></button>
         </div>
       </div>
       <div className="p-4 font-mono text-green-400 min-h-[200px]">{children}</div>
@@ -122,7 +122,7 @@ export default function Portfolio() {
                 <Typewriter text="[INFO] Welcome to the Matrix..." delay={60} />
               </div>
               <div className="mt-4 text-xl">
-                <Typewriter text="> ALEX_HACKER.exe" delay={80} />
+                <Typewriter text="> SERYOGA_HACKER.exe" delay={80} />
               </div>
               <div className="text-green-300">
                 <Typewriter text="Full Stack Developer | Cybersecurity Enthusiast | Code Ninja" delay={50} />
@@ -137,11 +137,11 @@ export default function Portfolio() {
               <div className="space-y-2">
                 <div className="text-green-300">$ cat about.txt</div>
                 <div className="border-l-2 border-green-500 pl-4 space-y-1">
-                  <Typewriter text="Name: Alex 'H4ck3r' Petrov" delay={30} />
+                  <Typewriter text="Name: Сергей 'Zombi' Прокопенко" delay={30} />
                   <br />
                   <Typewriter text="Age: 25" delay={30} />
                   <br />
-                  <Typewriter text="Location: Moscow, Russia" delay={30} />
+                  <Typewriter text="Location: Vladivostok, Russia" delay={30} />
                   <br />
                   <Typewriter text="Status: [ONLINE] Ready to hack the world" delay={30} />
                   <br />
@@ -159,21 +159,21 @@ export default function Portfolio() {
             {showSkills && (
               <div className="space-y-2">
                 <div className="text-green-300">$ python3 skills.py --list</div>
-                <div className="space-y-1">
-                  <Typewriter text="[████████████████████] JavaScript 95%" delay={20} />
+                <div className="space-y-1 whitespace-pre text-green-400 font-mono">
+                  <Typewriter text="[■■■■■■■■■■■■■■■■■■■■] 95% - JavaScript     " delay={20} />
                   <br />
-                  <Typewriter text="[██████████████████  ] TypeScript 90%" delay={20} />
+                  <Typewriter text="[■■■■■■■■■■■■■■■■■■  ] 90% - TypeScript     " delay={20} />
                   <br />
-                  <Typewriter text="[███████████████████ ] React/Next.js 92%" delay={20} />
+                  <Typewriter text="[■■■■■■■■■■■■■■■■■■■ ] 92% - React/Next.js  " delay={20} />
                   <br />
-                  <Typewriter text="[██████████████████  ] Node.js 88%" delay={20} />
+                  <Typewriter text="[■■■■■■■■■■■■■■■■■■  ] 88% - Node.js        " delay={20} />
                   <br />
-                  <Typewriter text="[████████████████    ] Python 80%" delay={20} />
+                  <Typewriter text="[■■■■■■■■■■■■■■■■    ] 80% - Python         " delay={20} />
                   <br />
-                  <Typewriter text="[███████████████████ ] Linux/Bash 93%" delay={20} />
+                  <Typewriter text="[■■■■■■■■■■■■■■■■■■■ ] 93% - Linux/Bash     " delay={20} />
                   <br />
                   <Typewriter
-                    text="[██████████████████  ] Cybersecurity 85%"
+                    text="[■■■■■■■■■■■■■■■■■■  ] 85% - Cybersecurity  "
                     delay={20}
                     onComplete={() => setTimeout(() => setShowProjects(true), 300)}
                   />
@@ -223,19 +223,15 @@ export default function Portfolio() {
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
                     <Mail className="w-4 h-4" />
-                    <Typewriter text="Email: alex.hacker@protonmail.com" delay={30} />
+                    <Typewriter text="Email: psi200523@gmail.com" delay={30} />
                   </div>
                   <div className="flex items-center gap-2">
                     <Github className="w-4 h-4" />
-                    <Typewriter text="GitHub: github.com/alexhacker" delay={30} />
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Linkedin className="w-4 h-4" />
-                    <Typewriter text="LinkedIn: linkedin.com/in/alexhacker" delay={30} />
+                    <Typewriter text="GitHub: github.com/serp_tid" delay={30} />
                   </div>
                   <div className="flex items-center gap-2">
                     <Terminal className="w-4 h-4" />
-                    <Typewriter text="Telegram: @alex_the_hacker" delay={30} />
+                    <Typewriter text="Telegram: @ProkopenkoSR" delay={30} />
                   </div>
                   <div className="mt-4 p-2 border border-green-500 rounded">
                     <Typewriter text="[ENCRYPTED] Ready for new challenges and collaborations!" delay={25} />
