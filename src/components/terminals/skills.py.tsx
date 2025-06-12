@@ -1,11 +1,9 @@
-"use client"
-
 import { useEffect, useState } from "react"
 import TerminalWindow from "../TerminalWindow"
-import Typewriter from "../Typewriter"
+import AsciiProgressBar from "../AsciiProgressBar"
 
 interface SkillsTerminalProps {
-  onDone?: () => void;
+  onDone?: () => void
 }
 
 export default function SkillsTerminal({ onDone }: SkillsTerminalProps) {
@@ -14,36 +12,25 @@ export default function SkillsTerminal({ onDone }: SkillsTerminalProps) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShow(true)
-      if (onDone) {
-        onDone()
-      }
+      if (onDone) onDone()
     }, 300)
-
     return () => clearTimeout(timer)
   }, [onDone])
 
   return (
     <TerminalWindow title="skills.py">
       {show && (
-        <div className="space-y-2">
-          <div className="text-green-300">$ python3 skills.py --list</div>
-          <div className="space-y-1 whitespace-pre text-green-400 font-mono">
-            <Typewriter text="[■■■■■■■■■■■         ] 65% - JavaScript     " delay={20} />
-            <br />
-            <Typewriter text="[■■■■■■■■■■■■        ] 60% - TypeScript     " delay={20} />
-            <br />
-            <Typewriter text="[■■■■■■■■■■■■■■■■■   ] 82% - React/Next.js  " delay={20} />
-            <br />
-            <Typewriter text="[■■■■■■■■■■■■■■■     ] 76% - FastAPI        " delay={20} />
-            <br />
-            <Typewriter text="[■■■■■■■■■■■■■■■■    ] 80% - Python         " delay={20} />
-            <br />
-            <Typewriter text="[■■■■■■■■■■■■■■■■■■■ ] 93% - Linux/Bash     " delay={20} />
-            <br />
-            <Typewriter text="[■■■■■■■■■■■■■       ] 70% - DevOps         " delay={20} />
-            <br />
-            <Typewriter text="[■■■■■■■■■■■■■■      ] 72% - English        " delay={20} />
-            <br />
+        <div className="space-y-2 text-green-300 font-mono">
+          <div>$ python3 skills.py --list</div>
+          <div className="space-y-1">
+            <AsciiProgressBar label="JavaScript" percent={65} />
+            <AsciiProgressBar label="TypeScript" percent={60} />
+            <AsciiProgressBar label="React/Next.js" percent={82} />
+            <AsciiProgressBar label="FastAPI" percent={76} />
+            <AsciiProgressBar label="Python" percent={80} />
+            <AsciiProgressBar label="Linux/Bash" percent={93} />
+            <AsciiProgressBar label="DevOps" percent={70} />
+            <AsciiProgressBar label="English" percent={72} />
           </div>
         </div>
       )}
