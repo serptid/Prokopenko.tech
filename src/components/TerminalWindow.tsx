@@ -13,7 +13,6 @@ export interface TerminalWindowProps {
 export default function TerminalWindow({ title, children, className = "" }: TerminalWindowProps) {
   const ref = useRef<HTMLDivElement>(null)
 
-  // Используем transform, НЕ absolute
   useDraggable(ref as React.RefObject<HTMLElement>, {
     handle: ".handle",
   })

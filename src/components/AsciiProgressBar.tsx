@@ -26,9 +26,8 @@ export default function AsciiProgressBar({ percent, label }: AsciiProgressBarPro
       const charWidth = temp.offsetWidth || 8
       document.body.removeChild(temp)
 
-      const reservedChars = 19
+      const reservedChars = 21
       const availableChars = Math.floor(totalWidth / charWidth) - reservedChars
-
       setBarLength(Math.max(10, availableChars))
     }
 
@@ -46,9 +45,12 @@ export default function AsciiProgressBar({ percent, label }: AsciiProgressBarPro
   return (
     <div
       ref={containerRef}
-      className="w-full font-mono text-green-400 whitespace-pre overflow-hidden"
+      className="w-full font-mono text-green-400 whitespace-pre overflow-hidden flex gap-2"
     >
-      {`${(label || "").padEnd(14)} [${bar}] ${percent}%`}
+      <div className="flex-1">[{bar}]</div>
+      <div className="text-left w-[170px]">
+        {`${percent}% - ${label ?? ""}`}
+      </div>
     </div>
   )
 }
