@@ -1,24 +1,30 @@
 "use client"
 
 import Image from "next/image"
+import { useState } from "react"
 import TerminalWindow from "../TerminalWindow"
 import Typewriter from "../Typewriter"
 
 export default function WhoamiTerminal() {
+  const [loaded, setLoaded] = useState(false)
+
   return (
     <TerminalWindow title="root@hacker:~$ whoami" className="w-full">
       <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6">
         {/* Левая часть — изображение */}
-        <div className="rounded-xl overflow-hidden shadow-lg">
+        <div className="w-full max-w-xl min-h-[170px] bg-black relative rounded-xl overflow-hidden">
           <Image
             src="/avatar.png"
             alt="Avatar"
-            width={608}
-            height={358}
-            className="object-cover w-full h-auto"
+            fill
+            className={`object-cover object-[25%_35%] select-none pointer-events-none transition-opacity duration-700 ease-in-out ${
+              loaded ? "opacity-100" : "opacity-0"
+            }`}
+            draggable={false}
+            onLoad={() => setLoaded(true)}
+            priority
           />
         </div>
-
 
         {/* Правая часть — текст */}
         <div className="space-y-2 text-left">
