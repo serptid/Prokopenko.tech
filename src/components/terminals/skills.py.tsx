@@ -42,6 +42,8 @@ export default function SkillsTerminal({ onDone }: SkillsTerminalProps) {
             <br />
             <Typewriter text="[■■■■■■■■■■■■■       ] 70% - DevOps         " delay={20} />
             <br />
+            <Typewriter text="[■■■■■■■■■■■■■■      ] 72% - English        " delay={20} />
+            <br />
           </div>
         </div>
       )}

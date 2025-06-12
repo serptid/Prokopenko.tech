@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import TerminalWindow from "../TerminalWindow"
 import Typewriter from "../Typewriter"
+import { FaUserGraduate, FaTrophy } from "react-icons/fa"
 
 export default function ProjectsTerminal({ onDone }: { onDone?: () => void }) {
   const [show, setShow] = useState(false)
@@ -12,36 +13,53 @@ export default function ProjectsTerminal({ onDone }: { onDone?: () => void }) {
     return () => clearTimeout(timer)
   }, [])
 
+  const iconHeaderClass = "inline-block mr-2 text-green-400 w-4 h-4 align-middle";
+
   return (
-    <TerminalWindow title="projects.json">
+    <TerminalWindow title="achievements.md">
       {show && (
         <div className="space-y-2">
-          <div className="text-green-300">$ ls -la ./projects/</div>
-          <div className="space-y-3">
+          <div className="text-green-300">$ cat student_portfolio/main.txt</div>
+          <div className="space-y-4">
             <div>
-              <Typewriter text="📁 SecureChat.exe - Encrypted messaging app" delay={25} />
+              <span className="flex items-center">
+                <FaUserGraduate className={iconHeaderClass} />
+                <Typewriter text="Статус: Студент 3 курса, ДВФУ" delay={25} />
+              </span>
+
+              <span className="text-green-600 text-sm ml-4">
+                └── Специальность: Информатика и вычислительная техника
+              </span>
               <br />
-              <span className="text-green-600 text-sm ml-4">└── React, WebRTC, End-to-end encryption</span>
+              <span className="text-green-600 text-sm ml-4">
+                └── Направление: Цифровые двойники и киберфизические системы
+              </span>
+              <br />
+              <span className="text-gray-400 text-xs ml-4">
+                └── Активность: Активно изучаю профильные дисциплины и ищу возможности для стажировки.
+              </span>
             </div>
+
             <div>
-              <Typewriter text="📁 PenTest-Suite - Vulnerability scanner" delay={25} />
+              <span className="flex items-center">
+                <FaTrophy className={iconHeaderClass} />
+                <Typewriter text="Хакатон (2 место): 'Зимняя проектная школа'" delay={25}
+                  onComplete={onDone}
+                />
+              </span>
+              <span className="text-green-600 text-sm ml-4">
+                └── Описание: Разработка Telegram-бота для составления расписаний и расчета времени работы оборудования в лабораториях ДВФУ.
+              </span>
               <br />
-              <span className="text-green-600 text-sm ml-4">└── Python, Nmap, Custom exploits</span>
-            </div>
-            <div>
-              <Typewriter text="📁 CryptoTracker - Real-time crypto monitor" delay={25} />
+              <span className="text-green-600 text-sm ml-4">
+                └── Технологии: Python (фреймворк aiogram), PostgreSQL (для хранения данных), алгоритмы расчета.
+              </span>
               <br />
-              <span className="text-green-600 text-sm ml-4">└── Next.js, WebSocket, TradingView API</span>
+              <span className="text-gray-400 text-xs ml-4">
+                └── Активность: Командная разработка в рамках проектной школы ДВФУ на тему "Цифровые решения для биоэкономики Дальнего Востока".
+              </span>
             </div>
-            <div>
-              <Typewriter
-                text="📁 AI-CodeReviewer - ML-powered code analysis"
-                delay={25}
-                onComplete={onDone}
-              />
-              <br />
-              <span className="text-green-600 text-sm ml-4">└── Python, TensorFlow, GitHub API</span>
-            </div>
+
           </div>
         </div>
       )}

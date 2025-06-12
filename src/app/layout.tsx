@@ -4,7 +4,7 @@ import "@/app/globals.css" // обязательно подключи стили
 
 export const metadata: Metadata = {
   title: "Сергей Прокопенко | Terminal/Портфолио",
-  description: "Портфолио разработчика и энтузиаста кибербезопасности в стиле терминала.",
+  description: "Портфолио разработчика и энтузиаста в стиле терминала.",
 }
 
 export const viewport: Viewport = {
@@ -21,7 +21,6 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <head>
-        {/* Подключаем шрифт Anonymous Pro или любой другой моноширинный */}
         <link
           href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap&subset=latin,cyrillic"
           rel="stylesheet"
