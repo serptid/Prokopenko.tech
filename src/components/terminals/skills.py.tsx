@@ -35,7 +35,7 @@ export default function SkillsTerminal({ onDone }: SkillsTerminalProps) {
     <TerminalWindow title="skills.py">
       <div className="space-y-2 text-green-300 font-mono">
         <div>$ python3 skills.py --list</div>
-        <div className="space-y-1">
+        <div className="space-y-0">
           {skills.slice(0, visibleCount).map((skill, idx) => (
             <AsciiProgressBar key={idx} {...skill} />
           ))}
