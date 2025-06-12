@@ -4,13 +4,23 @@ import { useEffect, useState } from "react"
 import TerminalWindow from "../TerminalWindow"
 import Typewriter from "../Typewriter"
 
-export default function SkillsTerminal({ onDone }: { onDone?: () => void }) {
+interface SkillsTerminalProps {
+  onDone?: () => void;
+}
+
+export default function SkillsTerminal({ onDone }: SkillsTerminalProps) {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
-    const timer = setTimeout(() => setShow(true), 300)
+    const timer = setTimeout(() => {
+      setShow(true)
+      if (onDone) {
+        onDone()
+      }
+    }, 300)
+
     return () => clearTimeout(timer)
-  }, [])
+  }, [onDone])
 
   return (
     <TerminalWindow title="skills.py">
