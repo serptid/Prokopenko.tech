@@ -1,13 +1,16 @@
 import { useEffect, useRef, useState } from "react"
+import Typewriter from "./Typewriter"
 
 interface AsciiProgressBarProps {
   percent: number
   label?: string
+  delay?: number
 }
 
-export default function AsciiProgressBar({ percent, label }: AsciiProgressBarProps) {
+export default function AsciiProgressBar({ percent, label, delay = 50 }: AsciiProgressBarProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [barLength, setBarLength] = useState(30)
+  const [fullText, setFullText] = useState("")
 
   useEffect(() => {
     const updateBarLength = () => {
@@ -38,19 +41,20 @@ export default function AsciiProgressBar({ percent, label }: AsciiProgressBarPro
     return () => observer.disconnect()
   }, [])
 
-  const filledLength = Math.round((percent / 100) * barLength)
-  const emptyLength = barLength - filledLength
-  const bar = "■".repeat(filledLength) + "-".repeat(emptyLength)
+  useEffect(() => {
+    const filledLength = Math.round((percent / 100) * barLength)
+    const emptyLength = barLength - filledLength
+    const bar = "■".repeat(filledLength) + "-".repeat(emptyLength)
+    const line = `[${bar}] ${percent}% - ${label ?? ""}`
+    setFullText(line)
+  }, [barLength, percent, label])
 
   return (
     <div
       ref={containerRef}
-      className="w-full font-mono text-green-400 whitespace-pre overflow-hidden flex gap-2"
+      className="w-full font-mono text-green-400 whitespace-pre overflow-hidden"
     >
-      <div className="flex-1">[{bar}]</div>
-      <div className="text-left w-[170px]">
-        {`${percent}% - ${label ?? ""}`}
-      </div>
+      <Typewriter text={fullText} delay={delay} />
     </div>
   )
 }
