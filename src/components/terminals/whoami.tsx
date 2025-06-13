@@ -29,7 +29,7 @@ export default function WhoamiTerminal() {
         {/* Правая часть — текст */}
         <div className="space-y-2 text-left">
           <div className="text-green-300">
-            <Typewriter text="$ initializing_developer_portfolio.exe..." delay={30} />
+            <Typewriter text="$initializing_developer_portfolio.exe..." delay={30} />
           </div>
           <div className="text-green-500">
             <Typewriter text="[OK] System loaded successfully" delay={40} />

@@ -35,7 +35,7 @@ export default function TerminalWindow({ title, children, className = "" }: Term
           <X className="w-5 h-5 text-red-500" />
         </div>
       </div>
-      <div className="p-4 font-mono text-green-400 min-h-[200px] bg-black">
+      <div className="p-4 font-mono text-green-400 min-h-[200px] bg-black overflow-y-auto max-h-[70vh]">
         {children}
       </div>
     </div>
