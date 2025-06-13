@@ -43,7 +43,7 @@ export default function ProjectsTerminal({ onDone }: { onDone?: () => void }) {
             <div>
               <span className="flex items-center">
                 <FaTrophy className={iconHeaderClass} />
-                <Typewriter text="Хакатон (2 место): 'Зимняя проектная школа'" delay={25}
+                <Typewriter text="Хакатон (2 место): 'Зимняя проектная школа 2025'" delay={25}
                   onComplete={onDone}
                 />
               </span>
