@@ -11,10 +11,10 @@ export default function WhoamiTerminal() {
   return (
     <TerminalWindow title="root@hacker:~$ whoami" className="w-full">
       <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6">
-        {/* Левая часть — изображение */}
+
         <div className="w-full max-w-xl min-h-[170px] bg-black relative rounded-xl overflow-hidden">
           <Image
-            src="/avatar.png"
+            src="/avatar.webp"
             alt="Avatar"
             fill
             className={`object-cover object-[25%_35%] select-none pointer-events-none transition-opacity duration-700 ease-in-out ${
@@ -26,7 +26,6 @@ export default function WhoamiTerminal() {
           />
         </div>
 
-        {/* Правая часть — текст */}
         <div className="space-y-2 text-left">
           <div className="text-green-300">
             <Typewriter text="$initializing_developer_portfolio.exe..." delay={30} />
