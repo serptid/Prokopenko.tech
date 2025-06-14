@@ -27,6 +27,17 @@ export default function ContactTerminal() {
                 <Typewriter text="Email: psi200523@gmail.com" delay={30} />
               </span>
             </a>
+            <a
+              href="https://t.me/ProkopenkoSR"
+              className={linkContainerClasses}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTelegram className="w-4 h-4 flex-shrink-0" />
+              <span className={linkTextClasses}>
+                <Typewriter text="Telegram: @ProkopenkoSR" delay={30} />
+              </span>
+            </a>
 
             <a
               href="https://github.com/serp_tid"

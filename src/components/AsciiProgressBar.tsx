@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react"
-import Typewriter from "./Typewriter"
 
 interface AsciiProgressBarProps {
   percent: number
@@ -10,38 +9,71 @@ interface AsciiProgressBarProps {
 export default function AsciiProgressBar({ percent, label, delay = 50 }: AsciiProgressBarProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [barLength, setBarLength] = useState(30)
-  const [fullText, setFullText] = useState("")
+  const [current, setCurrent] = useState(0)
+  const [displayText, setDisplayText] = useState("")
 
   useEffect(() => {
-    const update = () => {
+    const updateBarLength = () => {
       const container = containerRef.current
       if (!container) return
+
       const totalWidth = container.offsetWidth
-      const charWidth = 8
-      const reservedChars = 21
-      const availableChars = Math.floor(totalWidth / charWidth) - reservedChars
-      setBarLength(Math.max(10, availableChars))
+
+      const temp = document.createElement("span")
+      temp.textContent = "A"
+      temp.style.fontFamily = "monospace"
+      temp.style.fontSize = getComputedStyle(container).fontSize
+      temp.style.visibility = "hidden"
+      document.body.appendChild(temp)
+
+      const charWidth = temp.offsetWidth || 8
+      document.body.removeChild(temp)
+
+      const labelLen = (label ?? "").length
+      const digitLen = 3
+
+      const containerChars = Math.floor(totalWidth / charWidth)
+      const reserved = 7 + digitLen + labelLen
+      const available = Math.max(10, containerChars - reserved)
+      setBarLength(available)
     }
 
-    update()
-    window.addEventListener("resize", update)
-    return () => window.removeEventListener("resize", update)
-  }, [])
+    updateBarLength()
+
+    const observer = new ResizeObserver(updateBarLength)
+    if (containerRef.current) observer.observe(containerRef.current)
+    return () => observer.disconnect()
+  }, [label])
 
   useEffect(() => {
-    const filledLength = Math.round((percent / 100) * barLength)
+    setCurrent(0)
+    const id = setInterval(() => {
+      setCurrent((prev) => {
+        if (prev >= percent) {
+          clearInterval(id)
+          return percent
+        }
+        return prev + 1
+      })
+    }, delay)
+
+    return () => clearInterval(id)
+  }, [percent, delay])
+
+  useEffect(() => {
+    const filledLength = Math.round((current / 100) * barLength)
     const emptyLength = barLength - filledLength
     const bar = "■".repeat(filledLength) + "-".repeat(emptyLength)
-    const line = `[${bar}] ${percent}% - ${label ?? ""}`
-    setFullText(line)
-  }, [barLength, percent, label])
+    const line = `[${bar}] ${current}% - ${label ?? ""}`
+    setDisplayText(line)
+  }, [barLength, current, label])
 
   return (
     <div
       ref={containerRef}
       className="w-full font-mono text-green-400 whitespace-pre overflow-hidden"
     >
-      <Typewriter text={fullText} delay={delay} />
+      {displayText}
     </div>
   )
 }
