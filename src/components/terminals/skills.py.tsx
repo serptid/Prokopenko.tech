@@ -7,14 +7,14 @@ interface SkillsTerminalProps {
 }
 
 const skills = [
-  { label: "JavaScript", percent: 65 },
-  { label: "TypeScript", percent: 60 },
+  { label: "   JavaScript", percent: 65 },
+  { label: "   TypeScript", percent: 60 },
   { label: "React/Next.js", percent: 82 },
-  { label: "FastAPI", percent: 76 },
-  { label: "Python", percent: 80 },
-  { label: "Linux/Bash", percent: 93 },
-  { label: "DevOps", percent: 70 },
-  { label: "English", percent: 72 }
+  { label: "      FastAPI", percent: 76 },
+  { label: "       Python", percent: 80 },
+  { label: "   Linux/Bash", percent: 93 },
+  { label: "       DevOps", percent: 70 },
+  { label: "      English", percent: 72 }
 ]
 
 export default function SkillsTerminal({ onDone }: SkillsTerminalProps) {

@@ -64,7 +64,7 @@ export default function AsciiProgressBar({ percent, label, delay = 50 }: AsciiPr
     const filledLength = Math.round((current / 100) * barLength)
     const emptyLength = barLength - filledLength
     const bar = "■".repeat(filledLength) + "-".repeat(emptyLength)
-    const line = `[${bar}] ${current}% - ${label ?? ""}`
+    const line = `[${bar}] ${current}% → ${label ?? ""}`
     setDisplayText(line)
   }, [barLength, current, label])
 
