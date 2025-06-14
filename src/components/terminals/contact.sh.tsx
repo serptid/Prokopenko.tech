@@ -1,25 +1,18 @@
 "use client"
 
-import { useEffect, useState } from "react"
+
 import TerminalWindow from "../TerminalWindow"
 import Typewriter from "../Typewriter"
 import { FaTelegram, FaGithub, FaSteam, FaDiscord } from "react-icons/fa"
 import { MdAlternateEmail } from "react-icons/md"
 
 export default function ContactTerminal() {
-  const [show, setShow] = useState(false)
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShow(true), 300)
-    return () => clearTimeout(timer)
-  }, [])
 
   const linkContainerClasses = "flex items-center gap-2 hover:text-green-400 cursor-pointer";
   const linkTextClasses = "hover:underline";
 
   return (
     <TerminalWindow title="contact.sh">
-      {show && (
         <div className="space-y-2">
           <div className="text-green-300">$ ./connect_with_hacker.sh</div>
           <div className="space-y-3">
@@ -46,19 +39,6 @@ export default function ContactTerminal() {
                 <Typewriter text="GitHub: github.com/serp_tid" delay={30} />
               </span>
             </a>
-
-            <a
-              href="https://t.me/ProkopenkoSR"
-              className={linkContainerClasses}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaTelegram className="w-4 h-4 flex-shrink-0" />
-              <span className={linkTextClasses}>
-                <Typewriter text="Telegram: @ProkopenkoSR" delay={30} />
-              </span>
-            </a>
-
             <a
               href="https://steamcommunity.com/id/SERP_TID"
               className={linkContainerClasses}
@@ -88,7 +68,6 @@ export default function ContactTerminal() {
             </div>
           </div>
         </div>
-      )}
     </TerminalWindow>
   )
 }

@@ -12,7 +12,6 @@ export default function Typewriter({ text, delay = 50, onComplete }: TypewriterP
   const [displayText, setDisplayText] = useState("")
   const [currentIndex, setCurrentIndex] = useState(0)
   const [showCursor, setShowCursor] = useState(true)
-  const [cursorOpacity, setCursorOpacity] = useState("opacity-100")
 
   useEffect(() => {
     if (currentIndex < text.length) {
@@ -22,37 +21,22 @@ export default function Typewriter({ text, delay = 50, onComplete }: TypewriterP
       }, delay)
 
       return () => clearTimeout(timeout)
-    } else {
-      // Начинаем "исчезновение" курсора
-      const fadeStep1 = setTimeout(() => {
-        setCursorOpacity("opacity-50")
-      }, 300)
+  } else {
+    const hideCursor = setTimeout(() => {
+      setShowCursor(false)
+      onComplete?.()
+    }, 300)
 
-      const fadeStep2 = setTimeout(() => {
-        setCursorOpacity("opacity-0")
-      }, 600)
-
-      const hideCursor = setTimeout(() => {
-        setShowCursor(false)
-        onComplete?.()
-      }, 900)
-
-      return () => {
-        clearTimeout(fadeStep1)
-        clearTimeout(fadeStep2)
-        clearTimeout(hideCursor)
-      }
+    return () => {
+      clearTimeout(hideCursor)
     }
+  }
   }, [currentIndex, delay, text, onComplete])
 
   return (
     <span>
       {displayText}
-      {showCursor && (
-        <span className={`ml-1 inline-block animate-pulse transition-opacity duration-300 ${cursorOpacity}`}>
-          |
-        </span>
-      )}
+      {showCursor && <span className="ml-1 inline-block animate-pulse">|</span>}
     </span>
   )
 }

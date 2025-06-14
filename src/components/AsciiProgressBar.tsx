@@ -13,32 +13,19 @@ export default function AsciiProgressBar({ percent, label, delay = 50 }: AsciiPr
   const [fullText, setFullText] = useState("")
 
   useEffect(() => {
-    const updateBarLength = () => {
+    const update = () => {
       const container = containerRef.current
       if (!container) return
-
       const totalWidth = container.offsetWidth
-
-      const temp = document.createElement("span")
-      temp.textContent = "A"
-      temp.style.fontFamily = "monospace"
-      temp.style.fontSize = getComputedStyle(container).fontSize
-      temp.style.visibility = "hidden"
-      document.body.appendChild(temp)
-
-      const charWidth = temp.offsetWidth || 8
-      document.body.removeChild(temp)
-
+      const charWidth = 8
       const reservedChars = 21
       const availableChars = Math.floor(totalWidth / charWidth) - reservedChars
       setBarLength(Math.max(10, availableChars))
     }
 
-    updateBarLength()
-
-    const observer = new ResizeObserver(updateBarLength)
-    if (containerRef.current) observer.observe(containerRef.current)
-    return () => observer.disconnect()
+    update()
+    window.addEventListener("resize", update)
+    return () => window.removeEventListener("resize", update)
   }, [])
 
   useEffect(() => {

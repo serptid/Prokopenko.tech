@@ -8,7 +8,7 @@ export default function MatrixBackground() {
   >([])
 
   useEffect(() => {
-    const items = Array.from({ length: 50 }).map(() => ({
+    const items = Array.from({ length: 20 }).map(() => ({
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
       delay: `${Math.random() * 2}s`,
@@ -23,11 +23,12 @@ export default function MatrixBackground() {
       {matrixItems.map((item, i) => (
         <div
           key={i}
-          className="absolute text-green-500 text-xs animate-pulse"
+          className="absolute text-green-500 text-xs"
           style={{
             left: item.left,
             top: item.top,
             animationDelay: item.delay,
+            animation: "pulse 2s linear infinite",
           }}
         >
           {item.char}

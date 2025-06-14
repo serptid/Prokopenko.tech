@@ -1,20 +1,12 @@
 "use client"
 
-import { useEffect, useState } from "react"
+
 import TerminalWindow from "../TerminalWindow"
 import Typewriter from "../Typewriter"
 
 export default function AboutTerminal({ onDone }: { onDone?: () => void }) {
-  const [show, setShow] = useState(false)
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShow(true), 500)
-    return () => clearTimeout(timer)
-  }, [])
-
   return (
     <TerminalWindow title="about.sh">
-      {show && (
         <div className="space-y-2">
           <div className="text-green-300">$ cat about.txt</div>
           <div className="border-l-2 border-green-500 pl-4 space-y-1">
@@ -33,7 +25,6 @@ export default function AboutTerminal({ onDone }: { onDone?: () => void }) {
             />
           </div>
         </div>
-      )}
     </TerminalWindow>
   )
 }

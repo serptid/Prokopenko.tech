@@ -1,23 +1,16 @@
 "use client"
 
-import { useEffect, useState } from "react"
+
 import TerminalWindow from "../TerminalWindow"
 import Typewriter from "../Typewriter"
 import { FaUserGraduate, FaTrophy } from "react-icons/fa"
 
 export default function ProjectsTerminal({ onDone }: { onDone?: () => void }) {
-  const [show, setShow] = useState(false)
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShow(true), 300)
-    return () => clearTimeout(timer)
-  }, [])
 
   const iconHeaderClass = "inline-block mr-2 text-green-400 w-4 h-4 align-middle";
 
   return (
     <TerminalWindow title="achievements.md">
-      {show && (
         <div className="space-y-2">
           <div className="text-green-300">$ cat student_portfolio/main.txt</div>
           <div className="space-y-4">
@@ -62,7 +55,6 @@ export default function ProjectsTerminal({ onDone }: { onDone?: () => void }) {
 
           </div>
         </div>
-      )}
     </TerminalWindow>
   )
 }
