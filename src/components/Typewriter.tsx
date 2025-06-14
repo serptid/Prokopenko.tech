@@ -39,4 +39,4 @@ export default function Typewriter({ text, delay = 50, onComplete }: TypewriterP
       {showCursor && <span className="ml-1 inline-block animate-pulse">|</span>}
     </span>
   )
-}progres
+}
