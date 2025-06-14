@@ -33,7 +33,7 @@ export default function AsciiProgressBar({ percent, label, delay = 50 }: AsciiPr
       const digitLen = 3
 
       const containerChars = Math.floor(totalWidth / charWidth)
-      const reserved = 7 + digitLen + labelLen
+      const reserved = 10 + digitLen + labelLen
       const available = Math.max(10, containerChars - reserved)
       setBarLength(available)
     }
