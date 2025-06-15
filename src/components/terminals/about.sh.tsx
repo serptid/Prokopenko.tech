@@ -16,7 +16,7 @@ export default function AboutTerminal({ onDone }: { onDone?: () => void }) {
             <br />
             <Typewriter text="Location: Vladivostok, Russia" delay={30} />
             <br />
-            <Typewriter text="Status: [ONLINE] Ready to hack the world" delay={30} />
+            <Typewriter text="Status: В поиске стажировки" delay={30} />
             <br />
             <Typewriter
               text="Bio: Веб-разработчик начального уровня с сильной мотивацией к обучению и росту. Ищу возможность применить полученные знания на практике, участвовать в командной разработке и развиваться в профессиональной среде, осваивая новые технологии."
