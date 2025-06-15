@@ -7,7 +7,7 @@ import AboutTerminal from "@/components/terminals/about.sh"
 import SkillsTerminal from "@/components/terminals/skills.py"
 import ProjectsTerminal from "@/components/terminals/projects.json"
 import ContactTerminal from "@/components/terminals/contact.sh"
-import StatusTerminal, { MinimizedWindow } from "@/components/terminals/status"
+import StatusTerminal, { HiddenWindow } from "@/components/terminals/status"
 import { useState } from "react"
 
 type WindowId = "whoami" | "about" | "skills" | "projects" | "contact"
@@ -35,15 +35,15 @@ export default function Page() {
     setWindows((prev) => ({ ...prev, [id]: { ...prev[id], minimized: true } }))
   }
 
-  const handleRestore = (id: WindowId) => {
+  const handleOpen = (id: WindowId) => {
     setWindows((prev) => ({
       ...prev,
       [id]: { ...prev[id], minimized: false, closed: false },
     }))
   }
 
-  const minimized: MinimizedWindow[] = Object.entries(windows)
-    .filter(([_, w]) => w.minimized && !w.closed)
+  const hidden: HiddenWindow[] = Object.entries(windows)
+    .filter(([_, w]) => w.minimized || w.closed)
     .map(([id, w]) => ({ id: id as WindowId, title: w.title }))
 
   return (
@@ -51,7 +51,7 @@ export default function Page() {
       <MatrixBackground />
 
       <div className="relative z-10 max-w-7xl mx-auto space-y-4">
-        <StatusTerminal minimized={minimized} onRestore={handleRestore} />
+        <StatusTerminal windows={hidden} onOpen={handleOpen} />
 
         {!windows.whoami.closed && !windows.whoami.minimized && (
           <div className="mb-4">

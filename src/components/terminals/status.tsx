@@ -3,17 +3,17 @@
 import { useRef } from "react"
 import { useDraggable } from "@neodrag/react"
 
-export interface MinimizedWindow {
+export interface HiddenWindow {
   id: string
   title: string
 }
 
 interface StatusTerminalProps {
-  minimized: MinimizedWindow[]
-  onRestore: (id: string) => void
+  windows: HiddenWindow[]
+  onOpen: (id: string) => void
 }
 
-export default function StatusTerminal({ minimized, onRestore }: StatusTerminalProps) {
+export default function StatusTerminal({ windows, onOpen }: StatusTerminalProps) {
   const ref = useRef<HTMLDivElement>(null)
 
   useDraggable(ref as React.RefObject<HTMLElement>, {
@@ -33,10 +33,10 @@ export default function StatusTerminal({ minimized, onRestore }: StatusTerminalP
           <span className="text-green-400">System Ready</span>
         </div>
         <div className="flex items-center gap-2 ml-4">
-          {minimized.map((w) => (
+          {windows.map((w) => (
             <button
               key={w.id}
-              onClick={() => onRestore(w.id)}
+              onClick={() => onOpen(w.id)}
               className="px-2 py-0.5 border border-green-500 rounded text-green-400 hover:bg-green-800"
             >
               {w.title}
