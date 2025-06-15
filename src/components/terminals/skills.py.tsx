@@ -8,7 +8,6 @@ interface TerminalProps {
   onToggleMaximize?: () => void
   onDone?: () => void
 }
-interface SkillsTerminalProps extends TerminalProps {}
 
 const skills = [
   { label: "   JavaScript", percent: 65 },
@@ -18,10 +17,15 @@ const skills = [
   { label: "       Python", percent: 80 },
   { label: "   Linux/Bash", percent: 93 },
   { label: "       DevOps", percent: 70 },
-  { label: "      English", percent: 72 }
+  { label: "      English", percent: 72 },
 ]
 
-export default function SkillsTerminal({ onDone, onClose, onMinimize, onToggleMaximize }: SkillsTerminalProps) {
+export default function SkillsTerminal({
+  onDone,
+  onClose,
+  onMinimize,
+  onToggleMaximize,
+}: TerminalProps) {
   useEffect(() => {
     onDone?.()
   }, [onDone])
