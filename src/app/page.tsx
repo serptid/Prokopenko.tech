@@ -52,7 +52,10 @@ export default function Page() {
       <MatrixBackground />
 
       <div className="relative z-10 max-w-7xl mx-auto space-y-4">
-        <StatusTerminal windows={hidden} onOpen={handleOpen} />
+        <StatusTerminal
+          windows={hidden}
+          onOpen={(id) => handleOpen(id as WindowId)}
+        />
 
         {!windows.whoami.closed && !windows.whoami.minimized && (
           <div className="mb-4">
