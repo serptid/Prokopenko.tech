@@ -6,13 +6,24 @@ import Typewriter from "../Typewriter"
 import { FaTelegram, FaGithub, FaSteam, FaDiscord } from "react-icons/fa"
 import { MdAlternateEmail } from "react-icons/md"
 
-export default function ContactTerminal() {
+interface TerminalProps {
+  onClose?: () => void
+  onMinimize?: () => void
+  onToggleMaximize?: () => void
+}
+
+export default function ContactTerminal({ onClose, onMinimize, onToggleMaximize }: TerminalProps) {
 
   const linkContainerClasses = "flex items-center gap-2 hover:text-green-400 cursor-pointer";
   const linkTextClasses = "hover:underline";
 
   return (
-    <TerminalWindow title="contact.sh">
+    <TerminalWindow
+      title="contact.sh"
+      onClose={onClose}
+      onMinimize={onMinimize}
+      onToggleMaximize={onToggleMaximize}
+    >
         <div className="space-y-2">
           <div className="text-green-300">$ ./connect_with_hacker.sh</div>
           <div className="space-y-3">

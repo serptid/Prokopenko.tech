@@ -5,11 +5,22 @@ import { useState } from "react"
 import TerminalWindow from "../TerminalWindow"
 import Typewriter from "../Typewriter"
 
-export default function WhoamiTerminal() {
+interface TerminalProps {
+  onClose?: () => void
+  onMinimize?: () => void
+  onToggleMaximize?: () => void
+}
+export default function WhoamiTerminal({ onClose, onMinimize, onToggleMaximize }: TerminalProps) {
   const [loaded, setLoaded] = useState(false)
 
   return (
-    <TerminalWindow title="root@hacker:~$ whoami" className="w-full">
+    <TerminalWindow
+      title="root@hacker:~$ whoami"
+      className="w-full"
+      onClose={onClose}
+      onMinimize={onMinimize}
+      onToggleMaximize={onToggleMaximize}
+    >
       <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6">
 
         <div className="w-full max-w-xl min-h-[170px] bg-black relative rounded-xl overflow-hidden">

@@ -2,9 +2,13 @@ import { useEffect } from "react"
 import TerminalWindow from "../TerminalWindow"
 import AsciiProgressBar from "../AsciiProgressBar"
 
-interface SkillsTerminalProps {
+interface TerminalProps {
+  onClose?: () => void
+  onMinimize?: () => void
+  onToggleMaximize?: () => void
   onDone?: () => void
 }
+interface SkillsTerminalProps extends TerminalProps {}
 
 const skills = [
   { label: "   JavaScript", percent: 65 },
@@ -17,13 +21,18 @@ const skills = [
   { label: "      English", percent: 72 }
 ]
 
-export default function SkillsTerminal({ onDone }: SkillsTerminalProps) {
+export default function SkillsTerminal({ onDone, onClose, onMinimize, onToggleMaximize }: SkillsTerminalProps) {
   useEffect(() => {
     onDone?.()
   }, [onDone])
 
   return (
-    <TerminalWindow title="skills.py">
+    <TerminalWindow
+      title="skills.py"
+      onClose={onClose}
+      onMinimize={onMinimize}
+      onToggleMaximize={onToggleMaximize}
+    >
       <div className="space-y-2 text-green-300 font-mono">
         <div>$ python3 skills.py --list</div>
         <div className="space-y-0">
