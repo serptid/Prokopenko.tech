@@ -44,7 +44,7 @@ export default function Page() {
   }
 
   const hidden: HiddenWindow[] = Object.entries(windows)
-    .filter(([_, w]) => w.minimized || w.closed)
+    .filter(([, w]) => w.minimized || w.closed) // <--- заменено _ на ,
     .map(([id, w]) => ({ id: id as WindowId, title: w.title }))
 
   return (
