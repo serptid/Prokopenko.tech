@@ -5,12 +5,24 @@ import TerminalWindow from "../TerminalWindow"
 import Typewriter from "../Typewriter"
 import { FaUserGraduate, FaTrophy } from "react-icons/fa"
 
-export default function ProjectsTerminal({ onDone }: { onDone?: () => void }) {
+interface TerminalProps {
+  onClose?: () => void
+  onMinimize?: () => void
+  onToggleMaximize?: () => void
+  onDone?: () => void
+}
+
+export default function ProjectsTerminal({ onDone, onClose, onMinimize, onToggleMaximize }: TerminalProps) {
 
   const iconHeaderClass = "inline-block mr-2 text-green-400 w-4 h-4 align-middle";
 
   return (
-    <TerminalWindow title="achievements.md">
+    <TerminalWindow
+      title="achievements.md"
+      onClose={onClose}
+      onMinimize={onMinimize}
+      onToggleMaximize={onToggleMaximize}
+    >
         <div className="space-y-2">
           <div className="text-green-300">$ cat student_portfolio/main.txt</div>
           <div className="space-y-4">

@@ -4,9 +4,20 @@
 import TerminalWindow from "../TerminalWindow"
 import Typewriter from "../Typewriter"
 
-export default function AboutTerminal({ onDone }: { onDone?: () => void }) {
+interface TerminalProps {
+  onClose?: () => void
+  onMinimize?: () => void
+  onToggleMaximize?: () => void
+  onDone?: () => void
+}
+export default function AboutTerminal({ onDone, onClose, onMinimize, onToggleMaximize }: TerminalProps) {
   return (
-    <TerminalWindow title="about.sh">
+    <TerminalWindow
+      title="about.sh"
+      onClose={onClose}
+      onMinimize={onMinimize}
+      onToggleMaximize={onToggleMaximize}
+    >
         <div className="space-y-2">
           <div className="text-green-300">$ cat about.txt</div>
           <div className="border-l-2 border-green-500 pl-4 space-y-1">
