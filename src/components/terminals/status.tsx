@@ -22,8 +22,10 @@ export default function StatusTerminal({ windows, onOpen }: StatusTerminalProps)
 
   return (
     <div ref={ref} className="relative w-full max-w-7xl mx-auto">
-      <div className="handle bg-gray-900 border border-green-500 rounded p-2 flex justify-between items-center text-sm cursor-move w-full">
-        <div className="flex items-center gap-4">
+      <div
+        className="handle bg-gray-900 border border-green-500 rounded p-2 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 text-sm cursor-move w-full"
+      >
+        <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-2 sm:gap-4">
           <span className="text-green-400">Status: [ONLINE]</span>
           <span className="text-green-400">Uptime: 24/7</span>
           <span className="text-green-400">Security: [MAXIMUM]</span>
@@ -32,7 +34,7 @@ export default function StatusTerminal({ windows, onOpen }: StatusTerminalProps)
           <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
           <span className="text-green-400">System Ready</span>
         </div>
-        <div className="flex items-center gap-2 ml-4">
+        <div className="flex flex-wrap items-center gap-2 sm:ml-4">
           {windows.map((w) => (
             <button
               key={w.id}
