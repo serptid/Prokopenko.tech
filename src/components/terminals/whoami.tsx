@@ -2,7 +2,7 @@
 
 import TerminalWindow from "../TerminalWindow"
 import Typewriter from "../Typewriter"
-import FaultyTerminal from '../FaultyTerminal';
+import FaultyTerminal from '../FaultyTerminal/FaultyTerminal';
 
 
 interface TerminalProps {
