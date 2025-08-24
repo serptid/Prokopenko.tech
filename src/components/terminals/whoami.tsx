@@ -12,8 +12,7 @@ interface TerminalProps {
   onToggleMaximize?: () => void
 }
 export default function WhoamiTerminal({ onClose, onMinimize, onToggleMaximize }: TerminalProps) {
-  const [loaded, setLoaded] = useState(false)
-
+  
   return (
     <TerminalWindow
       title="root@hacker:~$ whoami"
