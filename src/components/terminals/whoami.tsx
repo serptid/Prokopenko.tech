@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import TerminalWindow from "../TerminalWindow"
 import Typewriter from "../Typewriter"
 import FaultyTerminal from '../FaultyTerminal';
@@ -12,7 +11,7 @@ interface TerminalProps {
   onToggleMaximize?: () => void
 }
 export default function WhoamiTerminal({ onClose, onMinimize, onToggleMaximize }: TerminalProps) {
-  
+
   return (
     <TerminalWindow
       title="root@hacker:~$ whoami"
