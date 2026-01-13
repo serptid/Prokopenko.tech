@@ -36,7 +36,7 @@ export default function TerminalWindow({
   return (
     <div
       ref={ref}
-      className={`relative rounded-xl overflow-hidden border border-green-500 shadow-2xl shadow-green-500/20 ${className} ${maximized ? "fixed inset-0 z-50 w-screen h-screen" : ""}`}
+      className={`relative rounded-xl overflow-hidden border border-green-500 bg-black shadow-2xl shadow-green-500/20 origin-top-left ${className} ${maximized ? "scale-[1.05] z-20" : "scale-100"}`}
     >
       <div className="handle flex items-center justify-between bg-gray-900 px-4 py-1 cursor-move">
         <div className="flex items-center gap-2">

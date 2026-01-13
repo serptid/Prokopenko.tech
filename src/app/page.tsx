@@ -57,8 +57,8 @@ export default function Page() {
           onOpen={(id) => handleOpen(id as WindowId)}
         />
 
-        {!windows.whoami.closed && !windows.whoami.minimized && (
-          <div className="mb-4">
+        {!windows.whoami.closed && (
+          <div className={windows.whoami.minimized ? "hidden" : "mb-4"}>
             <WhoamiTerminal
               onClose={() => handleClose("whoami")}
               onMinimize={() => handleMinimize("whoami")}
