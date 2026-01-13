@@ -14,8 +14,8 @@ interface TerminalProps {
 
 export default function ContactTerminal({ onClose, onMinimize, onToggleMaximize }: TerminalProps) {
 
-  const linkContainerClasses = "flex items-center gap-2 hover:text-green-400 cursor-pointer";
-  const linkTextClasses = "hover:underline";
+  const linkContainerClasses = "flex items-center gap-2";
+  const linkTextClasses = "text-green-300 hover:text-green-400 hover:underline cursor-pointer";
 
   return (
     <TerminalWindow
@@ -27,63 +27,64 @@ export default function ContactTerminal({ onClose, onMinimize, onToggleMaximize 
         <div className="space-y-2">
           <div className="text-green-300">$ ./connect_with_hacker.sh</div>
           <div className="space-y-3">
-            <a
-              href="mailto:psi200523@gmail.com"
-              className={linkContainerClasses}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <div className={linkContainerClasses}>
               <MdAlternateEmail className="w-4 h-4 flex-shrink-0" />
-              <span className={linkTextClasses}>
+              <a
+                href="mailto:psi200523@gmail.com"
+                className={linkTextClasses}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Typewriter text="Email: psi200523@gmail.com" delay={30} />
-              </span>
-            </a>
-            <a
-              href="https://t.me/ProkopenkoSR"
-              className={linkContainerClasses}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+              </a>
+            </div>
+            <div className={linkContainerClasses}>
               <FaTelegram className="w-4 h-4 flex-shrink-0" />
-              <span className={linkTextClasses}>
+              <a
+                href="https://t.me/ProkopenkoSR"
+                className={linkTextClasses}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Typewriter text="Telegram: @ProkopenkoSR" delay={30} />
-              </span>
-            </a>
+              </a>
+            </div>
 
-            <a
-              href="https://github.com/serp_tid"
-              className={linkContainerClasses}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <div className={linkContainerClasses}>
               <FaGithub className="w-4 h-4 flex-shrink-0" />
-              <span className={linkTextClasses}>
+              <a
+                href="https://github.com/serp_tid"
+                className={linkTextClasses}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Typewriter text="GitHub: github.com/serp_tid" delay={30} />
-              </span>
-            </a>
-            <a
-              href="https://steamcommunity.com/id/SERP_TID"
-              className={linkContainerClasses}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+              </a>
+            </div>
+            <div className={linkContainerClasses}>
               <FaSteam className="w-4 h-4 flex-shrink-0" />
-              <span className={linkTextClasses}>
+              <a
+                href="https://steamcommunity.com/id/SERP_TID"
+                className={linkTextClasses}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Typewriter text="Steam: steamcommunity.com/id/SERP_TID" delay={30} />
-              </span>
-            </a>
+              </a>
+            </div>
 
-            <a
-              href="https://discord.com/users/533201254143229962"
-              className={linkContainerClasses}
-              target="_blank"
-              title="Discord: sery0zha (click to copy or note)"
-            >
+            <div className={linkContainerClasses}>
               <FaDiscord className="w-4 h-4 flex-shrink-0" />
-              <span className={linkTextClasses}>
+              <a
+                href="https://discord.com/users/533201254143229962"
+                className={linkTextClasses}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Discord: sery0zha (click to copy or note)"
+              >
                 <Typewriter text="Discord: sery0zha" delay={30} />
-              </span>
-            </a>
+              </a>
+            </div>
 
             <div className="mt-4 p-2 border border-green-500 rounded">
               <Typewriter text="[ENCRYPTED] Ready for new challenges and collaborations!" delay={25} />
