@@ -5,16 +5,19 @@ export default function Home() {
         <header className="sheet-header">
           <h1>СЕРГЕЙ ПРОКОПЕНКО</h1>
           <p className="contacts">
-            Вакансия: Производственная практика. Технологическая
-            (проектно-технологическая) практика
-            <br />
-            Моб: +7 914 566 98-08 | E-mail:{" "}
-            <a href="mailto:prokopenko.si@dvfu.ru">prokopenko.si@dvfu.ru</a>
+            <span className="vacancy-line">
+              Вакансия: Производственная практика. Технологическая
+              (проектно-технологическая) практика
+            </span>
+            <span className="contact-line">
+              Моб: +7 914 566 98-08 | E-mail:{" "}
+              <a href="mailto:prokopenko.si@dvfu.ru">prokopenko.si@dvfu.ru</a>
+            </span>
           </p>
         </header>
 
         <section className="sheet-section">
-          <p>
+          <p className="profile-text">
             Студент 3 курса направления «Информатика и вычислительная техника»,
             профиль «Цифровые двойники». Имею практический опыт разработки и
             прототипирования программных решений. Работал с REST API, SQL и

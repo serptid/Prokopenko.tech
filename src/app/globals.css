@@ -4,6 +4,8 @@
   color-scheme: light;
   --a4-width: min(800px, 100%);
   --content-width: min(680px, 100%);
+  --space: 12px;
+  --space-half: 6px;
 }
 
 *,
@@ -66,18 +68,28 @@ a {
 }
 
 .contacts {
-  margin-top: 10px;
+  margin-top: var(--space);
   font-size: clamp(13px, 1.7vw, 16px);
 }
 
+.vacancy-line,
+.contact-line {
+  display: block;
+  font-size: clamp(12px, 1.35vw, 15px);
+}
+
+.vacancy-line {
+  white-space: nowrap;
+}
+
 .sheet-section {
-  margin-top: 14px;
-  padding-top: 12px;
+  margin-top: var(--space);
+  padding-top: var(--space);
   border-top: 1px solid #9c9c9c;
 }
 
 .sheet-section h2 {
-  margin: 0 0 6px;
+  margin: 0 0 var(--space-half);
   font-size: clamp(15px, 1.9vw, 20px);
   font-weight: 700;
 }
@@ -87,26 +99,44 @@ a {
   font-size: clamp(13px, 1.55vw, 16px);
 }
 
+.profile-text {
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
+}
+
 .sheet .compact {
-  margin-bottom: 4px;
+  margin-bottom: var(--space-half);
 }
 
 .sheet ul {
-  margin: 0;
-  padding-left: 18px;
+  margin: var(--space-half) 0 0;
+  padding-left: 22px;
+  list-style: disc;
+  list-style-position: outside;
 }
 
 .sheet li {
-  margin-bottom: 2px;
+  margin-bottom: var(--space-half);
   font-size: clamp(13px, 1.55vw, 16px);
+  line-height: 1.38;
+}
+
+.sheet li::marker {
+  color: #111;
+  font-size: 1.08em;
+}
+
+.sheet li:last-child {
+  margin-bottom: 0;
 }
 
 .info-grid {
   margin: 0;
   display: grid;
   grid-template-columns: 92px 1fr;
-  column-gap: 12px;
-  row-gap: 6px;
+  column-gap: var(--space);
+  row-gap: var(--space-half);
 }
 
 .info-grid dt {
@@ -124,6 +154,8 @@ a {
   :root {
     --a4-width: 100%;
     --content-width: 100%;
+    --space: 10px;
+    --space-half: 5px;
   }
 
   .sheet {
@@ -132,8 +164,8 @@ a {
   }
 
   .sheet-section {
-    margin-top: 12px;
-    padding-top: 10px;
+    margin-top: var(--space);
+    padding-top: var(--space);
   }
 
   .sheet p,
