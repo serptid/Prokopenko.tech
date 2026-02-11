@@ -179,6 +179,11 @@ a {
     font-size: 12px;
   }
 
+  .vacancy-line {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
   .sheet-section h2 {
     font-size: 14px;
   }
