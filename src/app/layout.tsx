@@ -1,34 +1,18 @@
-// app/layout.tsx
-import type { Metadata, Viewport } from "next"
-import "@/app/globals.css" // обязательно подключи стили Tailwind
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Сергей Прокопенко | Terminal/Портфолио",
-  description: "Портфолио разработчика и энтузиаста в стиле терминала.",
-}
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  themeColor: "#000000",
-}
+  title: "Портфолио | Сергей Прокопенко",
+  description: "Личный сайт-портфолио Сергея Прокопенко.",
+};
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="ru">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap&subset=latin,cyrillic"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="bg-black text-green-400 font-mono">
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
-  )
+  );
 }

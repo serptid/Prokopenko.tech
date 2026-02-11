@@ -1,1 +1,163 @@
 @import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --a4-width: min(800px, 100%);
+  --content-width: min(680px, 100%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100svh;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #4d4d4d;
+  color: #171717;
+  line-height: 1.35;
+}
+
+a {
+  color: #0f52d3;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.page {
+  min-height: 100svh;
+  padding: clamp(10px, 2.5vw, 24px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.sheet {
+  width: var(--a4-width);
+  aspect-ratio: 210 / 297;
+  background: #f0f0f0;
+  padding: clamp(14px, 2.2vw, 24px);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18);
+}
+
+.sheet > * {
+  max-width: var(--content-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sheet-header {
+  text-align: center;
+}
+
+.sheet-header h1 {
+  margin: 0;
+  font-size: clamp(20px, 2.8vw, 28px);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.contacts {
+  margin-top: 10px;
+  font-size: clamp(13px, 1.7vw, 16px);
+}
+
+.sheet-section {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #9c9c9c;
+}
+
+.sheet-section h2 {
+  margin: 0 0 6px;
+  font-size: clamp(15px, 1.9vw, 20px);
+  font-weight: 700;
+}
+
+.sheet p {
+  margin: 0;
+  font-size: clamp(13px, 1.55vw, 16px);
+}
+
+.sheet .compact {
+  margin-bottom: 4px;
+}
+
+.sheet ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.sheet li {
+  margin-bottom: 2px;
+  font-size: clamp(13px, 1.55vw, 16px);
+}
+
+.info-grid {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  column-gap: 12px;
+  row-gap: 6px;
+}
+
+.info-grid dt {
+  margin: 0;
+  font-size: clamp(13px, 1.55vw, 16px);
+  font-weight: 400;
+}
+
+.info-grid dd {
+  margin: 0;
+  font-size: clamp(13px, 1.55vw, 16px);
+}
+
+@media (max-width: 780px) {
+  :root {
+    --a4-width: 100%;
+    --content-width: 100%;
+  }
+
+  .sheet {
+    padding: 12px;
+    aspect-ratio: auto;
+  }
+
+  .sheet-section {
+    margin-top: 12px;
+    padding-top: 10px;
+  }
+
+  .sheet p,
+  .sheet li,
+  .info-grid dt,
+  .info-grid dd {
+    font-size: 13px;
+  }
+
+  .contacts {
+    font-size: 12px;
+  }
+
+  .sheet-section h2 {
+    font-size: 14px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+    row-gap: 4px;
+  }
+
+  .info-grid dt {
+    margin-top: 6px;
+    font-weight: 700;
+  }
+}

@@ -1,98 +1,84 @@
-"use client"
-
-import MatrixBackground from "@/components/MatrixBackground"
-
-import WhoamiTerminal from "@/components/terminals/whoami"
-import AboutTerminal from "@/components/terminals/about.sh"
-import SkillsTerminal from "@/components/terminals/skills.py"
-import ProjectsTerminal from "@/components/terminals/projects.json"
-import ContactTerminal from "@/components/terminals/contact.sh"
-import StatusTerminal from "@/components/terminals/status"
-import type { HiddenWindow } from "@/components/terminals/status"
-import { useState } from "react"
-
-type WindowId = "whoami" | "about" | "skills" | "projects" | "contact"
-
-interface WindowState {
-  title: string
-  minimized: boolean
-  closed: boolean
-}
-
-export default function Page() {
-  const [windows, setWindows] = useState<Record<WindowId, WindowState>>({
-    whoami: { title: "root@hacker:~$ whoami", minimized: false, closed: false },
-    about: { title: "about.sh", minimized: false, closed: false },
-    skills: { title: "skills.py", minimized: false, closed: false },
-    projects: { title: "achievements.md", minimized: false, closed: false },
-    contact: { title: "contact.sh", minimized: false, closed: false },
-  })
-
-  const handleClose = (id: WindowId) => {
-    setWindows((prev) => ({ ...prev, [id]: { ...prev[id], closed: true } }))
-  }
-
-  const handleMinimize = (id: WindowId) => {
-    setWindows((prev) => ({ ...prev, [id]: { ...prev[id], minimized: true } }))
-  }
-
-  const handleOpen = (id: WindowId) => {
-    setWindows((prev) => ({
-      ...prev,
-      [id]: { ...prev[id], minimized: false, closed: false },
-    }))
-  }
-
-  const hidden: HiddenWindow[] = Object.entries(windows)
-    .filter(([, w]) => w.minimized || w.closed) // <--- заменено _ на ,
-    .map(([id, w]) => ({ id: id as WindowId, title: w.title }))
-
+export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-green-400 p-4 font-mono overflow-hidden">
-      <MatrixBackground />
+    <main className="page">
+      <article className="sheet">
+        <header className="sheet-header">
+          <h1>СЕРГЕЙ ПРОКОПЕНКО</h1>
+          <p className="contacts">
+            Вакансия: Производственная практика. Технологическая
+            (проектно-технологическая) практика
+            <br />
+            Моб: +7 914 566 98-08 | E-mail:{" "}
+            <a href="mailto:prokopenko.si@dvfu.ru">prokopenko.si@dvfu.ru</a>
+          </p>
+        </header>
 
-      <div className="relative z-10 max-w-7xl mx-auto space-y-4">
-        <StatusTerminal
-          windows={hidden}
-          onOpen={(id) => handleOpen(id as WindowId)}
-        />
+        <section className="sheet-section">
+          <p>
+            Студент 3 курса направления «Информатика и вычислительная техника»,
+            профиль «Цифровые двойники». Имею практический опыт разработки и
+            прототипирования программных решений. Работал с REST API, SQL и
+            современными инструментами разработки, участвовал в создании
+            backend-сервисов и проектировании баз данных.
+          </p>
+        </section>
 
-        {!windows.whoami.closed && (
-          <div className={windows.whoami.minimized ? "hidden" : "mb-4"}>
-            <WhoamiTerminal
-              onClose={() => handleClose("whoami")}
-              onMinimize={() => handleMinimize("whoami")}
-            />
-          </div>
-        )}
+        <section className="sheet-section">
+          <h2>ОПЫТ РАБОТЫ</h2>
+          <p className="compact">
+            Коммерческий опыт отсутствует.
+            <br />В рамках обучения и самостоятельных проектов:
+          </p>
+          <ul>
+            <li>
+              Разрабатывал учебные и pet-проекты (backend-сервисы, базы данных,
+              API), применяя современные технологии разработки.
+            </li>
+            <li>
+              Проектировал и реализовывал приложения с клиент-серверной
+              архитектурой.
+            </li>
+            <li>
+              Работал с системами контроля версий (Git), структурировал код и
+              документацию проектов.
+            </li>
+            <li>
+              Закрывал полный цикл задач: анализ требований, проектирование,
+              реализация, тестирование.
+            </li>
+          </ul>
+        </section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          {!windows.about.closed && !windows.about.minimized && (
-            <AboutTerminal
-              onClose={() => handleClose("about")}
-              onMinimize={() => handleMinimize("about")}
-            />
-          )}
-          {!windows.skills.closed && !windows.skills.minimized && (
-            <SkillsTerminal
-              onClose={() => handleClose("skills")}
-              onMinimize={() => handleMinimize("skills")}
-            />
-          )}
-          {!windows.projects.closed && !windows.projects.minimized && (
-            <ProjectsTerminal
-              onClose={() => handleClose("projects")}
-              onMinimize={() => handleMinimize("projects")}
-            />
-          )}
-          {!windows.contact.closed && !windows.contact.minimized && (
-            <ContactTerminal
-              onClose={() => handleClose("contact")}
-              onMinimize={() => handleMinimize("contact")}
-            />
-          )}
-        </div>
-      </div>
-    </div>
-  )
+        <section className="sheet-section">
+          <h2>ОБРАЗОВАНИЕ</h2>
+          <p>
+            <strong>2023 - 2027</strong> Дальневосточный федеральный университет,
+            Информатика и вычислительная техника, профиль «Цифровые двойники»,
+            студент 3 курса.
+          </p>
+        </section>
+
+        <section className="sheet-section">
+          <h2>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</h2>
+          <dl className="info-grid">
+            <dt>Скиллы</dt>
+            <dd>
+              Python, JavaScript, Kotlin, SQL (PostgreSQL), проектирование баз
+              данных, REST API, Git, Docker (базовый уровень), алгоритмы и
+              структуры данных, ООП.
+            </dd>
+
+            <dt>Языки</dt>
+            <dd>English (B1), Russian (родной)</dd>
+
+            <dt>Хобби</dt>
+            <dd>
+              Разработка pet-проектов, участие в технических сообществах,
+              самостоятельное изучение новых технологий.
+            </dd>
+          </dl>
+        </section>
+      </article>
+    </main>
+  );
 }
